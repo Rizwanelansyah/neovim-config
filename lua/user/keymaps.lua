@@ -1,0 +1,40 @@
+local builtin = require("telescope.builtin")
+local cmp = require("cmp")
+
+vim.keymap.set("n", "<leader>e", "<CMD>NvimTreeToggle<CR>", { desc = "Toggle Nvim Tree" })
+vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find Files With Telescope" })
+vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Live Grep" })
+vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Buffers" })
+vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Help Tags" })
+vim.keymap.set("n", "<leader>gg", "<CMD>LazyGit<CR>", { desc = "Open Lazy Git" })
+vim.keymap.set({ "n", "i" }, "<M-Down>", "<CMD>m+1<CR>", { desc = "Move Line (DOWN)" })
+vim.keymap.set({ "n", "i" }, "<S-M-Down>", "<CMD>t.<CR>", { desc = "Duplicate Line (DOWN)" })
+vim.keymap.set({ "n", "i" }, "<M-Up>", "<CMD>m-2<CR>", { desc = "Move Line (UP)" })
+vim.keymap.set({ "n", "i" }, "<S-M-Up>", "<CMD>t.<CR><CMD>m-2<CR>", { desc = "Duplicate Line (UP)" })
+vim.keymap.set({ "n" }, "<C-Space>", "<CMD>BufferLineCycleNext<CR>", { desc = "Buffer Cycle Next" })
+vim.keymap.set({ "i", "c" }, "<C-d>", "<ESC>viw", { desc = "Enter Visual Mode And Select Word" })
+
+vim.keymap.set("n", "<leader>xo", "<CMD>SymbolsOutline<CR>", { desc = "Toggle Symbols Outline" })
+vim.keymap.set("n", "<leader>xx", function()
+	require("trouble").toggle()
+end, { desc = "Toggle Trouble" })
+
+vim.keymap.set("n", "<leader>xw", function()
+	require("trouble").toggle("workspace_diagnostics")
+end, { desc = "Workspace Diagnostics" })
+
+vim.keymap.set("n", "<leader>xd", function()
+	require("trouble").toggle("document_diagnostics")
+end, { desc = "Document Diagnostic" })
+
+vim.keymap.set("n", "<leader>xq", function()
+	require("trouble").toggle("quickfix")
+end, { desc = "Quick Fix" })
+
+vim.keymap.set("n", "<leader>xl", function()
+	require("trouble").toggle("loclist")
+end, { desc = "Loclist" })
+
+vim.keymap.set("n", "gR", function()
+	require("trouble").toggle("lsp_references")
+end, { desc = "LSP References" })
